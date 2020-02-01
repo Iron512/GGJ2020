@@ -13,6 +13,7 @@ public class Event : ScriptableObject
 	[Tooltip("Description of the event")]
 	public string description;
 
+	public Sprite icon = null;
 	[Tooltip("Duration of the event in seconds")]
 	public int duration = 20;
 	
