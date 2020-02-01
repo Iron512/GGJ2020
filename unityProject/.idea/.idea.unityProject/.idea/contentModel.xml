@@ -14,7 +14,6 @@
           <e p="ResourcesManager.cs" t="Include" />
           <e p="Singletons.cs" t="Include" />
         </e>
-        <e p="testsc.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />

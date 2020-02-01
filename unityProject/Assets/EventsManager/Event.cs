@@ -68,11 +68,13 @@ public class Event : ScriptableObject
 	
 	public void onEventExecute()
 	{
-		int stepPopulationVariation = this.targetNatureVariation
-
-
+ 
 	}
 
+	private void computeStepVariation()
+	{
+		
+	}
 	public void onEventEnd()
 	{
 		
