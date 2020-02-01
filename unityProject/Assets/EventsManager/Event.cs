@@ -55,25 +55,27 @@ public class Event : ScriptableObject
 	
 	public void onEventStarts()
 	{
+		//set startTime
 		this.startTimeValue = Time.time;
-		/*
-		this.targetPopulationVariation = ;
-		this.targetNatureVariation = ;
-		this.targetTemperatureVariation = ;
-		this.targetWaterVariation =;
-		this.targetResourceVariation = ;
-		*/
 		
+		//set all target variations
+		this.targetPopulationVariation = (int)(ResourcesManager._instance.population * (1 - this.deltaPoppulation));
+		this.targetNatureVariation = (int)(ResourcesManager._instance.nature * (1 - this.deltaPoppulation));
+		this.targetTemperatureVariation = (int)(ResourcesManager._instance.temperature * (1 - this.deltaPoppulation));
+		this.targetWaterVariation = (int)(ResourcesManager._instance.water * (1 - this.deltaPoppulation));
+		this.targetResourceVariation = (int)(ResourcesManager._instance.resources * (1 - this.deltaPoppulation));
 	}
 	
 	public void onEventExecute()
 	{
-		
+		int stepPopulationVariation = this.targetNatureVariation
+
+
 	}
 
 	public void onEventEnd()
 	{
-		throw new NotImplementedException();
+		
 	}
 	
 }
