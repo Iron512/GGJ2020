@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class PoliciesManager : MonoBehaviour
 {
-    Policy CurrentPolicy;
-
+    Policy CurrentPolicy = null;
     public void onPolicyChange(Policy NewPolicy)
     {
-        CurrentPolicy.onPolicyEnd();
+        if (CurrentPolicy != null)
+        {
+            CurrentPolicy.onPolicyEnd();
+        }
         NewPolicy.onPolicyStart();
     }
 }
