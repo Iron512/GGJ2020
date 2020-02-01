@@ -10,12 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c3ac507a1c03444794bbac688275082, type: 3}
-  m_Name: Policies
+  m_Name: Policy
   m_EditorClassIdentifier: 
   name: 
   description: 
-  duration: 20
-  deltaPoppulation: 0
+  buffering: 20
+  deltaBudget: 0
+  deltaPopulation: 0
   deltaNature: 0
   deltaTemperature: 0
   deltaWater: 0
