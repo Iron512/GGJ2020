@@ -27,7 +27,7 @@ public class EventsManager : MonoBehaviour {
     
     public void Start()
     {
-        InvokeRepeating("ExecuteEvents", 1, 1);
+        InvokeRepeating("ExecuteEvents", 1, tick);
     }
 
     //add a new event to the event that are executing
