@@ -56,6 +56,11 @@ public class ResourcesManager : Singleton<ResourcesManager>
         return this.population *this.coeficient;
     }
 
+    public int populationChange()
+    {
+        return 0;
+    }
+
 
 
 }
