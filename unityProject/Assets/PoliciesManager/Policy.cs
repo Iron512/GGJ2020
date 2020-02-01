@@ -16,9 +16,6 @@ public class Policy : ScriptableObject
 	public int buffering = 20;
 
 	[Tooltip("Percentage buff or debuff to population")]
-	[Range(-1, 1)] public float deltaBudget = 0.0f;
-
-	[Tooltip("Percentage buff or debuff to population")]
 	[Range(-1, 1)] public float deltaPopulation = 0.0f;
 
 	[Tooltip("Percentage buff or debuff to nature")]
@@ -36,7 +33,6 @@ public class Policy : ScriptableObject
 	public void onPolicyStart()
 	{
 		// apply policy modificators
-		ResourcesManager._instance.budgetMoltiplicator += deltaBudget;
 		ResourcesManager._instance.wellfareMoltiplicator += deltaPopulation;
 		ResourcesManager._instance.natureMoltiplicator += deltaNature;
 		ResourcesManager._instance.pollutionMoltiplicator += deltaTemperature;
@@ -46,7 +42,6 @@ public class Policy : ScriptableObject
 	public void onPolicyEnd()
 	{
 		// remove policy modificators
-		ResourcesManager._instance.budgetMoltiplicator -= deltaBudget;
 		ResourcesManager._instance.wellfareMoltiplicator -= deltaPopulation;
 		ResourcesManager._instance.natureMoltiplicator -= deltaNature;
 		ResourcesManager._instance.pollutionMoltiplicator -= deltaTemperature;
