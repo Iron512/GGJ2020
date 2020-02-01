@@ -7,10 +7,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 153564773609236744, guid: 1711e88751e4b4cfb8ed57a0f9ec7e79,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 153564773609236744, guid: 1711e88751e4b4cfb8ed57a0f9ec7e79,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 35
+      objectReference: {fileID: 0}
+    - target: {fileID: 153564773609236744, guid: 1711e88751e4b4cfb8ed57a0f9ec7e79,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 153564773609236744, guid: 1711e88751e4b4cfb8ed57a0f9ec7e79,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3726056310740001381, guid: 1711e88751e4b4cfb8ed57a0f9ec7e79,
         type: 3}
       propertyPath: m_Name
-      value: Wisdom
+      value: Fake-News Identifier
       objectReference: {fileID: 0}
     - target: {fileID: 5086746534542431606, guid: 1711e88751e4b4cfb8ed57a0f9ec7e79,
         type: 3}
