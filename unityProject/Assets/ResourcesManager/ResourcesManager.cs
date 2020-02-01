@@ -40,5 +40,5 @@ public class ResourcesManager : Singleton<ResourcesManager>
     // Natural Resources
     public bool renewableEnergies = false;
     public bool newDeposits = false;
-    public bool reuseAncientRubbishDump = false;
+    public bool reuseAncientRubbishDump = false;    
 }
