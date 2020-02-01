@@ -7,8 +7,8 @@
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="EventsManager" t="Include">
-          <e p="EvensManager.cs" t="Include" />
           <e p="Event.cs" t="Include" />
+          <e p="EventsManager.cs" t="Include" />
         </e>
         <e p="ResourcesManager" t="Include">
           <e p="ResourcesManager.cs" t="Include" />

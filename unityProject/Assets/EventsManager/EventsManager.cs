@@ -3,12 +3,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EventManager : MonoBehaviour {
-    private static EventManager _instance;
+public class EventsManager : MonoBehaviour {
+    private static EventsManager _instance;
     public float tick = 1; //time interval in seconds between the update 
     List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
 
-    public static EventManager Instance
+    public static EventsManager Instance
     {
         get { return _instance; }
     }
