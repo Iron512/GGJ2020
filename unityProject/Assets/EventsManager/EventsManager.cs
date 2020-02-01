@@ -7,6 +7,7 @@ public class EventsManager : MonoBehaviour {
     private static EventsManager _instance;
     public float tick = 1; //time interval in seconds between the update 
     List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
+    List<Event> availableEvents = new List<Event>();
 
     public static EventsManager Instance
     {
@@ -49,6 +50,11 @@ public class EventsManager : MonoBehaviour {
                 activeEvents.Remove(ev);
             }
         }    
+    }
+    private Event GetEvent()
+    {
+        Event Eventoooo = null;
+        return Eventoooo;
     }
 
 }
