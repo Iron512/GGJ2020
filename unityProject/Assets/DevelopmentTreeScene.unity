@@ -4038,7 +4038,12 @@ PrefabInstance:
     - target: {fileID: 8825723790501575809, guid: 9674daa839566456b84c012dd97a72b0,
         type: 3}
       propertyPath: m_Colors.m_ColorMultiplier
-      value: 3.78
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8825723790501575809, guid: 9674daa839566456b84c012dd97a72b0,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9674daa839566456b84c012dd97a72b0, type: 3}
