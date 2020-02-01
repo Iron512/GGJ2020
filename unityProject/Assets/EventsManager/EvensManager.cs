@@ -24,6 +24,7 @@ public class EventManager : MonoBehaviour {
         }
     }
 
+    
     public void Start()
     {
         InvokeRepeating("ExecuteEvents", 1, 1);
@@ -42,7 +43,7 @@ public class EventManager : MonoBehaviour {
         foreach (var ev in activeEvents)
         {    
             ev.onEventExecute();
-            if (ev.startTime + ev.duration >= Time.time)
+            if (ev.timeAtStart + ev.duration >= Time.time)
             {
                 ev.onEventEnd();
                 activeEvents.Remove(ev);

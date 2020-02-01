@@ -31,7 +31,7 @@ public class Event : ScriptableObject
 	[Tooltip("Percentage debuf to percentage")]
 	[Range(0, 1)] public float deltaResources = 0;
 
-	private float startTimeValue = 0; //time the event fired
+	protected float startTime = 0; //time the event fired
 
 	private int currentPopulationVariation = 0; //how many people have died for this event
 	private int targetPopulationVariation = 0; //how many people will be dead because of this event at the end of its execution
@@ -47,16 +47,16 @@ public class Event : ScriptableObject
 	
 	private int currentResourcesVariation = 0; //resources score variation since the start of the event
 	private int targetResourceVariation = 0; //target resource score variation at the end of the event
-	
-	public float startTime 
+
+	public float timeAtStart
 	{
-		get{ return this.startTimeValue; }
+		get { return this.startTime; }
 	}
 	
 	public void onEventStarts()
 	{
 		//set startTime
-		this.startTimeValue = Time.time;
+		this.startTime = Time.time;
 		
 		//set all target variations
 		this.targetPopulationVariation = (int)(ResourcesManager._instance.population * (1 - this.deltaPoppulation));
@@ -66,15 +66,35 @@ public class Event : ScriptableObject
 		this.targetResourceVariation = (int)(ResourcesManager._instance.resources * (1 - this.deltaPoppulation));
 	}
 	
+	
+	// execute the event effects lowering resources
 	public void onEventExecute()
 	{
- 
+		float percentage = Mathf.Min(Time.time-this.startTime/this.duration,1);
+
+		ResourcesManager._instance.population -= this.computeResourceValue(ref this.targetPopulationVariation,
+			ref this.currentPopulationVariation, percentage);
+
+		ResourcesManager._instance.nature -= this.computeResourceValue(ref this.targetNatureVariation,
+			ref this.currentNatureVariation, percentage);
+		
+		ResourcesManager._instance.temperature -= this.computeResourceValue(ref this.targetTemperatureVariation,
+			ref this.currentTemperatureVariation, percentage);
+		
+		ResourcesManager._instance.water -= this.computeResourceValue(ref this.targetWaterVariation,
+			ref this.currentWaterVariation, percentage);
+		
+		ResourcesManager._instance.resources -= this.computeResourceValue(ref this.targetResourceVariation,
+			ref this.currentResourcesVariation, percentage);
 	}
 
-	private void computeStepVariation()
+	private int computeResourceValue(ref int targetVariation, ref int currentVariation, float percentage)
 	{
-		
+		int value = (int)(targetVariation*percentage- currentVariation);
+		currentVariation = (int) (targetVariation * percentage);
+		return value;
 	}
+	
 	public void onEventEnd()
 	{
 		
