@@ -23,7 +23,7 @@ public class Event : ScriptableObject
 	[Range(0, 1)] public float deltaNature = 0;
 	
 	[Tooltip("Percentage debuf to temperature")]
-	[Range(0, 1)] public float deltaTemperature= 0;
+	[Range(0, 1)] public float deltaPollution= 0;
 	
 	[Tooltip("Percentage debuf to Water")]
 	[Range(0, 1)] public float deltaWater = 0;
@@ -39,8 +39,8 @@ public class Event : ScriptableObject
 	private int currentNatureVariation = 0; // nature score variation caused by this event up to now
 	private int targetNatureVariation = 0;// nature score variation at the end of this event
 	
-	private int currentTemperatureVariation = 0; //temperature score variation since the start of the event
-	private int targetTemperatureVariation = 0; //target temperature score variation at the end of the event
+	private int currentPollutionVariation = 0; //temperature score variation since the start of the event
+	private int targetPollutionVariation = 0; //target temperature score variation at the end of the event
 	
 	private int currentWaterVariation = 0; //water score variation since the start of the event
 	private int targetWaterVariation = 0; //target water score variation at the end of the event
@@ -61,7 +61,7 @@ public class Event : ScriptableObject
 		//set all target variations
 		this.targetPopulationVariation = (int)(ResourcesManager._instance.population * (1 - this.deltaPoppulation));
 		this.targetNatureVariation = (int)(ResourcesManager._instance.nature * (1 - this.deltaPoppulation));
-		this.targetTemperatureVariation = (int)(ResourcesManager._instance.temperature * (1 - this.deltaPoppulation));
+		this.targetPollutionVariation = (int)(ResourcesManager._instance.pollution * (1 - this.deltaPoppulation));
 		this.targetWaterVariation = (int)(ResourcesManager._instance.water * (1 - this.deltaPoppulation));
 		this.targetResourceVariation = (int)(ResourcesManager._instance.resources * (1 - this.deltaPoppulation));
 	}
@@ -78,8 +78,8 @@ public class Event : ScriptableObject
 		ResourcesManager._instance.nature -= this.computeResourceValue(ref this.targetNatureVariation,
 			ref this.currentNatureVariation, percentage);
 		
-		ResourcesManager._instance.temperature -= this.computeResourceValue(ref this.targetTemperatureVariation,
-			ref this.currentTemperatureVariation, percentage);
+		ResourcesManager._instance.pollution -= this.computeResourceValue(ref this.targetPollutionVariation,
+			ref this.currentPollutionVariation, percentage);
 		
 		ResourcesManager._instance.water -= this.computeResourceValue(ref this.targetWaterVariation,
 			ref this.currentWaterVariation, percentage);
