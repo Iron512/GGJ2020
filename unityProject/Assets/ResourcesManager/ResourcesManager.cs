@@ -18,10 +18,12 @@ public class ResourcesManager : Singleton<ResourcesManager>
     public int water = 10;
     public int resources = 10;
 
-    
+    // Moltiplicators
+    public float budgetMoltiplicator = 1f;
     public float wellfareMoltiplicator = 1f;
     public float natureMoltiplicator = 1f;
     public float pollutionMoltiplicator = 1f;
+    public float waterMoltiplicator = 1f;
     public float resourceMoltiplicator = 1f;
     
     
