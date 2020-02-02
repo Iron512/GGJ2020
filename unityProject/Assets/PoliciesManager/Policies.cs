@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Policies", menuName = "Policies", order = 1)]
 public class Policies : ScriptableObject
 {
+	
 	[Tooltip("Name of the policy")]
 	public string name;
 
