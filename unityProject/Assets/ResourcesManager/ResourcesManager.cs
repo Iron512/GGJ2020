@@ -34,7 +34,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
 
     // Start is called before the first frame update
     void Start() {
-        InvokeRepeating("executeTick",3,1);
+        InvokeRepeating("executeTick", 3, 0.1f);
     }
 
     void executeTick() {
