@@ -35,28 +35,33 @@ public class Logic : MonoBehaviour {
     	float anarchy = anarchyScroll.value;
     	float green = greenScroll.value;
     	float research = researchScroll.value;
-
+		print(anarchy + " - "+ green);
     	float deltaWelfare = 0;
     	float deltaPopularity = 0;
     	float deltaNature = 0;
     	float deltaWater = 0;
     	float deltaProduction = 0;
+        int i = 0;
 
-    	for (int i = 0; i < 5; i++) {
-    		deltaWelfare += policies[i,0] * health;
-    		deltaPopularity += policies[i,1] * industry;
-    		deltaNature += policies[i,2] * anarchy;
-    		deltaWater += policies[i,3] * green;
-    		deltaProduction += policies[i,4] * research;
-    	}
+        float[] multipliers = {health, industry, anarchy, green, research};
+        foreach (var multiplier in multipliers)
+        {
+	        deltaWelfare += policies[i, 0] * multiplier;
+	        deltaPopularity += policies[i, 1] * multiplier;
+	        deltaNature += policies[i, 2] * multiplier;
+	        deltaWater += policies[i, 3] * multiplier;
+	        deltaProduction += policies[i, 4] * multiplier;
+	        i++;
+        }
 
-    	welfare *= (1 + deltaWelfare);
+        welfare *= (1 + deltaWelfare);
     	popularity *= (1 + deltaPopularity);
     	nature *= (1 + deltaNature);
     	water *= (1 + deltaWater);
     	production *= (1 + deltaProduction);
-
-
+        
+        //print(nature + " , " + water);
+        
     	Circle._instance.changeWelfare(welfare);
     	Circle._instance.changePopularity(popularity);
     	Circle._instance.changeNature(nature);

@@ -4,12 +4,15 @@
     <e p="C:\Users\gianl\.Rider2019.3\system\extResources" t="IncludeRecursive" />
     <e p="C:\Users\gianl\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_unityProject.-2070722040.00" t="ExcludeRecursive" />
     <e p="C:\Users\gianl\Desktop\GGJ2020\unityProject" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="Circle.cs" t="Include" />
         <e p="EventsManager" t="Include">
           <e p="Event.cs" t="Include" />
           <e p="EventsManager.cs" t="Include" />
         </e>
+        <e p="Logic.cs" t="Include" />
         <e p="PoliciesManager" t="Include">
           <e p="Policies.cs" t="Include" />
           <e p="PoliciesManager.cs" t="Include" />
@@ -20,6 +23,47 @@
           <e p="Singletons.cs" t="Include" />
         </e>
         <e p="ScrollbarsManager.cs" t="Include" />
+        <e p="Shapes2D" t="Include">
+          <e p="changelog.txt" t="Include" />
+          <e p="Demos" t="Include">
+            <e p="DragCamera.cs" t="Include" />
+            <e p="Flappy Shapes" t="Include">
+              <e p="Bird.cs" t="Include" />
+              <e p="Game.cs" t="Include" />
+            </e>
+            <e p="InputUtils.cs" t="Include" />
+            <e p="Showcase" t="Include">
+              <e p="PacMan.cs" t="Include" />
+            </e>
+            <e p="Simple Effect" t="Include">
+              <e p="EffectDemo.cs" t="Include" />
+              <e p="TapEffect.cs" t="Include" />
+            </e>
+            <e p="Stress Test" t="Include">
+              <e p="Spawner.cs" t="Include" />
+            </e>
+          </e>
+          <e p="Editor" t="Include">
+            <e p="CustomHandles.cs" t="Include" />
+            <e p="MenuItems.cs" t="Include" />
+            <e p="ShapeEditor.cs" t="Include" />
+          </e>
+          <e p="readme.txt" t="Include" />
+          <e p="Scripts" t="Include">
+            <e p="PolyMap.cs" t="Include" />
+            <e p="Shape.cs" t="Include" />
+            <e p="Shapes2DPrefs.cs" t="Include" />
+          </e>
+          <e p="Shaders" t="Include">
+            <e p="Common.cginc" t="Include" />
+            <e p="Ellipse.cginc" t="Include" />
+            <e p="Path.cginc" t="Include" />
+            <e p="Polygon.cginc" t="Include" />
+            <e p="Rectangle.cginc" t="Include" />
+            <e p="Shape.shader" t="Include" />
+            <e p="Triangle.cginc" t="Include" />
+          </e>
+        </e>
         <e p="TextMesh Pro" t="Include">
           <e p="Fonts" t="Include">
             <e p="LiberationSans - OFL.txt" t="Include" />
