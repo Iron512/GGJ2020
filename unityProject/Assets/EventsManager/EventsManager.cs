@@ -52,12 +52,16 @@ public class EventsManager : MonoBehaviour
             if (form.gameObject.activeSelf == false)
             {
                 // events
-                //newEvent.onEventStarts();
+                newEvent.onEventStarts();
                 this.activeEvents.Add(newEvent);
                 // form
                 form.gameObject.SetActive(true);
                 form.SetNewEvent(newEvent);
                 break;
+            }
+            else
+            {
+                print("form attiva " + form.nameLabel.text);
             }
         }
     }
@@ -65,18 +69,23 @@ public class EventsManager : MonoBehaviour
     //Execute all the active ecents and deactivate them if they have done their time
     public void ExecuteEvents()
     {
-        foreach (var ev in activeEvents)
+        for (int i = activeEvents.Count - 1; i >= 0; i--)
         {
-            //ev.onEventExecute();
-            if (ev.timeAtStart + ev.duration >= Time.time)
+            activeEvents[i].onEventExecute();
+            if (activeEvents[i].timeAtStart + activeEvents[i].duration >= Time.time)
             {
                 foreach (var form in eventFormList)
                 {
-                    if (form.currentEvent == ev && form.gameObject.activeSelf == true)
+                    if (form.currentEvent == activeEvents[i] && form.gameObject.activeSelf == true)
                     {
-                        // ev.onEventEnd();
-                        activeEvents.Remove(ev);
+                        activeEvents[i].onEventEnd();
+                        print("remove item");
+                        activeEvents.Remove(activeEvents[i]);
                         form.gameObject.SetActive(false);
+                    }
+                    if (activeEvents.Count == 0)
+                    {
+                        break;
                     }
                 }
             }
@@ -84,7 +93,6 @@ public class EventsManager : MonoBehaviour
     }
     public Event GetEvent()
     {
-        // private Utility utility = new Utility;
         var random = new System.Random();
         int randomIndex = random.Next(availableEvents.Count);
         return availableEvents[randomIndex];
