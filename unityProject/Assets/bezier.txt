@@ -1,0 +1,77 @@
+using System.IO;
+using System;
+using System.Diagnostics;
+using System.Collections.Generic;
+
+class Program
+{
+    static double Norm(double[] v) {
+        double result = 0;
+
+        for (int j = 0; j < v.Length; j++) {
+            result += Math.Pow(v[j], 2);
+        }
+
+        return Math.Sqrt(result);
+    }
+
+    static void Main()
+    {
+        double[] x_coords = {1, 0, 0, 1, 1};
+        double[] y_coords = {0, -1, 1, 1, 0};
+        Console.WriteLine(x_coords[1]);
+
+        // Make sure the arrays have the same length
+        Debug.Assert(x_coords.Length == y_coords.Length);
+
+        // Make sure the last point is equal to the first one
+        Debug.Assert(x_coords[0] == x_coords[x_coords.Length-1]);
+        Debug.Assert(y_coords[0] == y_coords[x_coords.Length-1]);
+
+        // Declare 2D arrays
+        double[,] curve_directions = new double[x_coords.Length,3];
+        double[,] curve_points = new double[x_coords.Length,3];
+        var input_tension = new double[x_coords.Length];
+        var output_tension = new double[x_coords.Length];
+
+        // Populate arrays
+        for (int i = 0; i < x_coords.Length; i++) {
+            input_tension[i] = 1;
+            output_tension[i] = 1;
+            for (int j = 0; j < 3; j++) {
+                curve_directions[i, j] = double.NaN;
+            }
+            curve_points[i, 0] = x_coords[i];
+            curve_points[i, 1] = y_coords[i];
+            curve_points[i, 2] = 0;
+        }
+
+        // Fixup vectors iff necessary
+        double[] temp = new double[x_coords.Length];
+        for (int j = 0; j < 3; j++) {
+            temp[j] = curve_points[1, j] - curve_points[x_coords.Length - 2, j];
+        }
+
+        double temp_norm = Norm(temp);
+
+        for (int j = 0; j < 3; j++) {
+            curve_directions[0,                   j] = temp[j] / temp_norm;
+            curve_directions[x_coords.Length - 1, j] = temp[j] / temp_norm;
+            // Console.WriteLine(curve_directions[0,j]);
+        }
+
+        for (int i = 1; i < x_coords.Length - 1; i++) {
+            for (int j = 0; j < 3; j++) {
+                temp[j] = -curve_points[i - 1, j] + curve_points[i + 1, j];
+            }
+
+            temp_norm = Norm(temp);
+
+            for (int j = 0; j < 3; j++) {
+                curve_directions[i, j] = temp[j] / temp_norm;
+                Console.WriteLine(curve_directions[i, j]);
+            }
+        }
+
+    }
+}
