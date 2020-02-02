@@ -8,7 +8,7 @@ public class Circle : Singleton<Circle> {
  	public float thickness = 0.2f;
  	public float maxValue = 100;
 
- 	public Vector3 startPosition = new Vector3(0f,0f,-1f);
+	Vector3 startPosition = new Vector3(0f,0f,-1f);
 
  	private int vertex = 5;
 	private static GameObject[] objects;
@@ -18,7 +18,9 @@ public class Circle : Singleton<Circle> {
  	private Shapes2D.Shape curve;
  	private Shapes2D.Shape curve2;
 
-    private void Start() {
+    private void Start()
+    {
+	    startPosition = this.transform.position;
         objects = new GameObject[11];
         lines = new Shapes2D.Shape[5];
         donuts = new Shapes2D.Shape[5];
