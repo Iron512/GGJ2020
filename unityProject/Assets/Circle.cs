@@ -52,7 +52,7 @@ public class Circle : Singleton<Circle> {
   		curve2.enabled = false;
 
   		drawStar();
-  		drawDonuts();
+  		//drawDonuts();
   		drawCurve();
     }
 
@@ -73,7 +73,7 @@ public class Circle : Singleton<Circle> {
 
     	for (int i=0; i<vertex; i++) {
     		int deg = step*i;
-    		donuts[i].enabled = true;
+    		donuts[i].enabled = false;
     		donuts[i].transform.position = startPosition + new Vector3(-Mathf.Sin(Mathf.Deg2Rad * deg)*radius/maxValue*positions[i],Mathf.Cos(Mathf.Deg2Rad * deg)*radius/maxValue*positions[i],0);
     	}
 

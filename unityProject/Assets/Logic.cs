@@ -20,8 +20,8 @@ public class Logic : MonoBehaviour {
 		{0.2f,0.1f,-0.05f,-0.05f,-0.1f,0}, //salute
 		{-0.1f,0.1f,-0.05f,-0.05f,0.2f,0}, //industriella
 		{-0.05f,-0.05f,0.1f,0.1f,0,0}, //analchia
-		{0.1f,0,0.1f,0.1f,-0.2f,0}, //green
-		{-0.1f,-0.1f,-0.1f,-0.1f,-0.1f,0.5f} //ricerca
+		{0.1f,0,0.1f,0.1f,-0.1f,0}, //green
+		{-0.05f,-0.05f,-0.05f,-0.05f,-0.05f,0.5f} //ricerca
 	};
 
     // Start is called before the first frame update
@@ -35,8 +35,7 @@ public class Logic : MonoBehaviour {
     	float anarchy = anarchyScroll.value;
     	float green = greenScroll.value;
     	float research = researchScroll.value;
-		print(anarchy + " - "+ green);
-    	float deltaWelfare = 0;
+        float deltaWelfare = 0;
     	float deltaPopularity = 0;
     	float deltaNature = 0;
     	float deltaWater = 0;
@@ -59,10 +58,8 @@ public class Logic : MonoBehaviour {
     	nature *= (1 + deltaNature);
     	water *= (1 + deltaWater);
     	production *= (1 + deltaProduction);
-        
-        //print(nature + " , " + water);
-        
-    	Circle._instance.changeWelfare(welfare);
+
+        Circle._instance.changeWelfare(welfare);
     	Circle._instance.changePopularity(popularity);
     	Circle._instance.changeNature(nature);
     	Circle._instance.changeWater(water);
