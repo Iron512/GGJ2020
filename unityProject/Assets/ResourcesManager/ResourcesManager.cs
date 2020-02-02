@@ -80,8 +80,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
         string s = this.population + "," + populationFactor + "," + wellfareFactor + "," + waterFactor + "," +
                    natureFactor + "," + resourceFactor;
         
-        Debug.Log(s);
-    }
+            }
 
     private float applyPollution(float factor,float pollution)
     {
