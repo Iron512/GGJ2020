@@ -7,7 +7,7 @@ public class EventsManager : MonoBehaviour {
     private static EventsManager _instance;
     public float tick = 1; //time interval in seconds between the update 
     List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
-    List<Event> availableEvents = new List<Event>();
+    public List<Event> availableEvents;
 
     public static EventsManager Instance
     {
@@ -28,7 +28,14 @@ public class EventsManager : MonoBehaviour {
     
     public void Start()
     {
+        Console.WriteLine("start eventmanager");
         InvokeRepeating("ExecuteEvents", 1, tick);
+        if (tick / 5 == 0 || tick == 0)
+        {
+            Event eventToStart = GetEvent();
+            FireEvent(eventToStart);
+            Console.WriteLine("Start event " + eventToStart.name);
+        }
     }
 
     //add a new event to the event that are executing
@@ -49,12 +56,13 @@ public class EventsManager : MonoBehaviour {
                 ev.onEventEnd();
                 activeEvents.Remove(ev);
             }
-        }    
+        }
     }
-    private Event GetEvent()
+    public Event GetEvent()
     {
-        Event Eventoooo = null;
-        return Eventoooo;
+        // private Utility utility = new Utility;
+        var random = new System.Random();
+        int randomIndex = random.Next(availableEvents.Count);
+        return availableEvents[randomIndex];
     }
-
 }
