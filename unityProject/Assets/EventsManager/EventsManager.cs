@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class EventsManager : MonoBehaviour
 {
-    private static EventsManager _instance;
-    public float tick = 1; //time interval in seconds between the update 
+    public static EventsManager _instance;
+    public float tick = 1; //time interval in seconds between the update
     public float secondsToEventStart = 5; // time interval in seconds between each event
-    List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
+    public List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
     public List<Event> availableEvents;
     public List<EventFormManager> eventFormList;
 
