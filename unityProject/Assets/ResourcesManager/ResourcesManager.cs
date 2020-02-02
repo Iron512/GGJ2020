@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
 {
 
 	public int population = 100;
+	public TextMeshProUGUI populationText;
 	
 	public Scrollbar healthScroll;
 	public Scrollbar industryScroll;
@@ -14,6 +16,8 @@ public class ResourcesManager : Singleton<ResourcesManager>
 	public Scrollbar greenScroll;
 	public Scrollbar researchScroll;
 
+	public AnimationCurve gainCurve;
+	
 	private float welfare = 50f;
 	private float popularity = 50f;
 	private float nature = 50f;
@@ -63,11 +67,12 @@ public class ResourcesManager : Singleton<ResourcesManager>
     	water *= (1 + deltaWater);
     	production *= (1 + deltaProduction);
 
-        float populationFactor = (welfare + popularity + nature + water + production - 250)/50;
+        float populationFactor = (gainCurve.Evaluate((welfare-50)/50) + gainCurve.Evaluate((popularity-50)/50) + gainCurve.Evaluate((nature-50)/50) + gainCurve.Evaluate((water-50)/50) + gainCurve.Evaluate((production-50)/50));
 
-        this.population +=(int) (this.population * populationFactor / 4);        
+        this.population +=(int) (this.population * Mathf.Min(populationFactor,0.05f)/4);
+        populationText.text = this.population+"";
         
-        print(population);
+        //print(population);
 
         // draw graph
         Circle._instance.changeWelfare(welfare);
