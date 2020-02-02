@@ -18,19 +18,19 @@ public class Event : ScriptableObject
 	public int duration = 20;
 	
 	[Tooltip("Percentage debuf to population")]
-	[Range(0, 1)] public float deltaPoppulation = 0;
+	[Range(0, 1)] public float deltaWelfare = 0;
 
 	[Tooltip("Percentage debut to nature")]
-	[Range(0, 1)] public float deltaNature = 0;
+	[Range(0, 1)] public float deltaPopularity = 0;
 	
 	[Tooltip("Percentage debuf to temperature")]
-	[Range(0, 1)] public float deltaPollution= 0;
+	[Range(0, 1)] public float deltaNature= 0;
 	
 	[Tooltip("Percentage debuf to Water")]
 	[Range(0, 1)] public float deltaWater = 0;
 	
 	[Tooltip("Percentage debuf to percentage")]
-	[Range(0, 1)] public float deltaResources = 0;
+	[Range(0, 1)] public float deltaProduction = 0;
 
 	protected float startTime = 0; //time the event fired
 
