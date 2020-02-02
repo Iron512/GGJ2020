@@ -30,22 +30,26 @@ public class Policy : ScriptableObject
 	[Tooltip("Percentage buff or debuff to natural resources")]
 	[Range(-1, 1)] public float deltaResources = 0.0f;
 
+	
+	
 	public void onPolicyStart()
 	{
 		// apply policy modificators
-		ResourcesManager._instance.wellfareMoltiplicator += deltaPopulation;
+		/*ResourcesManager._instance.wellfareMoltiplicator += deltaPopulation;
 		ResourcesManager._instance.natureMoltiplicator += deltaNature;
 		ResourcesManager._instance.pollutionMoltiplicator += deltaTemperature;
 		ResourcesManager._instance.waterMoltiplicator += deltaWater;
-		ResourcesManager._instance.resourceMoltiplicator+= deltaWater;
+		ResourcesManager._instance.resourceMoltiplicator+= deltaWater;*/
 	}
 	public void onPolicyEnd()
 	{
 		// remove policy modificators
-		ResourcesManager._instance.wellfareMoltiplicator -= deltaPopulation;
+		/*ResourcesManager._instance.wellfareMoltiplicator -= deltaPopulation;
 		ResourcesManager._instance.natureMoltiplicator -= deltaNature;
 		ResourcesManager._instance.pollutionMoltiplicator -= deltaTemperature;
 		ResourcesManager._instance.waterMoltiplicator -= deltaWater;
-		ResourcesManager._instance.resourceMoltiplicator -= deltaWater;
+		ResourcesManager._instance.resourceMoltiplicator -= deltaWater;*/
 	}
+	
+	
 }

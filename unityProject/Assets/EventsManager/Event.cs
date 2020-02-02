@@ -65,11 +65,12 @@ public class Event : ScriptableObject
 		
 
 		//set all target variations
-		this.targetPopulationVariation = (int)(ResourcesManager._instance.population * (1 - this.deltaPoppulation));
+		/*this.targetPopulationVariation = (int)(ResourcesManager._instance.population * (1 - this.deltaPoppulation));
 		this.targetNatureVariation = (int)(ResourcesManager._instance.nature * (1 - this.deltaPoppulation));
 		this.targetPollutionVariation = (int)(ResourcesManager._instance.pollution * (1 - this.deltaPoppulation));
 		this.targetWaterVariation = (int)(ResourcesManager._instance.water * (1 - this.deltaPoppulation));
 		this.targetResourceVariation = (int)(ResourcesManager._instance.resources * (1 - this.deltaPoppulation));
+		*/
 	}
 	
 	
@@ -78,7 +79,7 @@ public class Event : ScriptableObject
 	{
 		float percentage = Mathf.Min(Time.time-this.startTime/this.duration,1);
 
-		ResourcesManager._instance.population -= this.computeResourceValue(ref this.targetPopulationVariation,
+		/*ResourcesManager._instance.population -= this.computeResourceValue(ref this.targetPopulationVariation,
 			ref this.currentPopulationVariation, percentage);
 
 		ResourcesManager._instance.nature -= this.computeResourceValue(ref this.targetNatureVariation,
@@ -92,6 +93,8 @@ public class Event : ScriptableObject
 		
 		ResourcesManager._instance.resources -= this.computeResourceValue(ref this.targetResourceVariation,
 			ref this.currentResourcesVariation, percentage);
+			
+			*/
 	}
 
 	private int computeResourceValue(ref int targetVariation, ref int currentVariation, float percentage)
