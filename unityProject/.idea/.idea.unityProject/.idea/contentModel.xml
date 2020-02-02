@@ -10,6 +10,10 @@
           <e p="Event.cs" t="Include" />
           <e p="EventsManager.cs" t="Include" />
         </e>
+        <e p="guiManager.cs" t="Include" />
+        <e p="MainMenuScripts" t="Include">
+          <e p="SceneSwitcher.cs" t="Include" />
+        </e>
         <e p="PoliciesManager" t="Include">
           <e p="Policies.cs" t="Include" />
           <e p="PoliciesManager.cs" t="Include" />
