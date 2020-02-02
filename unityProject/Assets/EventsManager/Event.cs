@@ -59,23 +59,21 @@ public class Event : ScriptableObject
 		//set startTime
 		this.startTime = Time.time;
 
-		// form interactions
-		GameObject form;
-		form = GameObject.Find("EventForm");
-		
-
+		/*
 		//set all target variations
 		this.targetWelfareVariation = (int)(ResourcesManager._instance.welfare * (1 - this.deltaWelfare));
 		this.targetPopularityVariation = (int)(ResourcesManager._instance.popularity * (1 - this.deltaPopularity));
 		this.targetNatureVariation = (int)(ResourcesManager._instance.nature * (1 - this.deltaNature));
 		this.targetWaterVariation = (int)(ResourcesManager._instance.water * (1 - this.deltaWater));
 		this.deltaProduction = (int)(ResourcesManager._instance.production * (1 - this.deltaProduction));
+		*/
 	}
 	
 	
 	// execute the event effects lowering resources
 	public void onEventExecute()
 	{
+		/*
 		float percentage = Mathf.Min(Time.time-this.startTime/this.duration,1);
 
 		ResourcesManager._instance.welfare -= this.computeResourceValue(ref this.targetWelfareVariation,
@@ -92,6 +90,7 @@ public class Event : ScriptableObject
 		
 		ResourcesManager._instance.production -= this.computeResourceValue(ref this.targetProducitonVariation,
 			ref this.currentProductionVariation, percentage);
+			*/
 	}
 
 	private int computeResourceValue(ref int targetVariation, ref int currentVariation, float percentage)
