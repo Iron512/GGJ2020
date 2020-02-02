@@ -148,6 +148,27 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3396694072639055205, guid: e24105b677de04c4596891845f40cc4e,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 71224e1982658ca18b1ea651d18ebab1,
+        type: 3}
+    - target: {fileID: 3396694072639055205, guid: e24105b677de04c4596891845f40cc4e,
+        type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396694072639055205, guid: e24105b677de04c4596891845f40cc4e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+    - target: {fileID: 3396694072639055205, guid: e24105b677de04c4596891845f40cc4e,
+        type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6803834967130064696, guid: e24105b677de04c4596891845f40cc4e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -226,32 +247,32 @@ PrefabInstance:
     - target: {fileID: 7134184199947186855, guid: e24105b677de04c4596891845f40cc4e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7134184199947186855, guid: e24105b677de04c4596891845f40cc4e,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 118.8
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7134184199947186855, guid: e24105b677de04c4596891845f40cc4e,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 108
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7134184199947186855, guid: e24105b677de04c4596891845f40cc4e,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7134184199947186855, guid: e24105b677de04c4596891845f40cc4e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7134184199947186855, guid: e24105b677de04c4596891845f40cc4e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 220
+      value: 200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 7243324766535440047, guid: e24105b677de04c4596891845f40cc4e,
@@ -291,19 +312,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 895263128de73c54fa34c0bbb57cc9fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coeficient: 1
-  population: 10
-  wellfare: 10
-  nature: 10
-  pollution: 1
-  water: 10
-  resources: 10
-  budgetMoltiplicator: 1
-  wellfareMoltiplicator: 1
-  natureMoltiplicator: 1
-  pollutionMoltiplicator: 1
-  waterMoltiplicator: 1
-  resourceMoltiplicator: 1
 --- !u!4 &88313745
 Transform:
   m_ObjectHideFlags: 0
@@ -526,6 +534,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tick: 1
+  secondsToEventStart: 5
+  availableEvents: []
+  eventFormList: []
 --- !u!1 &1182442661
 GameObject:
   m_ObjectHideFlags: 0
