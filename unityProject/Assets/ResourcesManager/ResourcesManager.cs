@@ -8,7 +8,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
 {
 
 	public int population = 100;
-	public TextMeshProUGUI populationText;
+	//public TextMeshProUGUI populationText;
 	
 	public Scrollbar healthScroll;
 	public Scrollbar industryScroll;
@@ -69,8 +69,8 @@ public class ResourcesManager : Singleton<ResourcesManager>
 
         float populationFactor = (gainCurve.Evaluate((welfare-50)/50) + gainCurve.Evaluate((popularity-50)/50) + gainCurve.Evaluate((nature-50)/50) + gainCurve.Evaluate((water-50)/50) + gainCurve.Evaluate((production-50)/50));
 
-        this.population +=(int) (this.population * Mathf.Min(populationFactor,0.05f)/4);
-        populationText.text = this.population+"";
+        //this.population +=(int) (this.population * Mathf.Min(populationFactor,0.05f)/4);
+        //populationText.text = this.population+"";
         
         //print(population);
 
