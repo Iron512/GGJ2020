@@ -14,11 +14,11 @@ public class ResourcesManager : Singleton<ResourcesManager>
 	public Scrollbar greenScroll;
 	public Scrollbar researchScroll;
 
-	private float welfare = 50f;
-	private float popularity = 50f;
-	private float nature = 50f;
-	private float water = 50f;
-	private float production = 50f;
+	public float welfare = 50f;
+	public float popularity = 50f;
+	public float nature = 50f;
+	public float water = 50f;
+	public float production = 50f;
 
 	private float[,] policies = {
 		{0.2f,0.1f,-0.05f,-0.05f,-0.1f,0}, //salute
