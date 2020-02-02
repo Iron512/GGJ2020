@@ -35,7 +35,7 @@ public class Circle : Singleton<Circle> {
 
     		lines[i] = objects[i].GetComponent<Shapes2D.Shape>();
     		lines[i].enabled = false;
-			lines[i].settings.fillColor = Color.red;
+			lines[i].settings.fillColor = Color.gray;
   			lines[i].transform.position = startPosition;
   			lines[i].transform.localScale = new Vector3(thickness,radius,0);
 
