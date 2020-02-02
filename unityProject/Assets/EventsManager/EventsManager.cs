@@ -59,10 +59,6 @@ public class EventsManager : MonoBehaviour
                 form.SetNewEvent(newEvent);
                 break;
             }
-            else
-            {
-                print("form attiva " + form.nameLabel.text);
-            }
         }
     }
 
