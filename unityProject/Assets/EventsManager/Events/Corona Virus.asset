@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 50a395211cca76841812486e51110bbd, type: 3}
   m_Name: Corona Virus
   m_EditorClassIdentifier: 
-  name: 
+  name: Corona Virus
   description: The population is affected by a very strong virus
   icon: {fileID: 0}
-  duration: 20
+  duration: 10
   deltaWelfare: 0.2
   deltaPopularity: 0.1
   deltaNature: 0

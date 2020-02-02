@@ -15,7 +15,7 @@ MonoBehaviour:
   name: No-Vax
   description: The population no longer wants to get vaccinated
   icon: {fileID: 0}
-  duration: 20
+  duration: 10
   deltaWelfare: 0.2
   deltaPopularity: 0
   deltaNature: 0
