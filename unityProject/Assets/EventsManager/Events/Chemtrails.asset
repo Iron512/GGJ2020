@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Chemtrails
   description: The population believes in a government plot that wants to change
     the climate.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 231a0afa95f3c8d498701b4aeff898ed, type: 3}
   duration: 10
   deltaWelfare: 0
   deltaPopularity: 0.2
