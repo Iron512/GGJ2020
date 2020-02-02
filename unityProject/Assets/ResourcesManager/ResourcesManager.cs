@@ -8,8 +8,8 @@ public class ResourcesManager : Singleton<ResourcesManager>
 {
 
 	public int population = 100;
-	//public TextMeshProUGUI populationText;
-	
+	public TextMeshProUGUI populationText;
+
 	public Scrollbar healthScroll;
 	public Scrollbar industryScroll;
 	public Scrollbar anarchyScroll;
@@ -48,31 +48,38 @@ public class ResourcesManager : Singleton<ResourcesManager>
     	float deltaNature = 0;
     	float deltaWater = 0;
     	float deltaProduction = 0;
-        int i = 0;
-        
+
         float[] multipliers = {health, industry, anarchy, green, research};
-        foreach (var multiplier in multipliers)
-        {
-	        deltaWelfare += policies[i, 0] * multiplier;
-	        deltaPopularity += policies[i, 1] * multiplier;
-	        deltaNature += policies[i, 2] * multiplier;
-	        deltaWater += policies[i, 3] * multiplier;
-	        deltaProduction += policies[i, 4] * multiplier;
-	        i++;
+        for (int i = 0; i < multipliers.Length; i++) {
+	        deltaWelfare += policies[i, 0] * multipliers[i];
+	        deltaPopularity += policies[i, 1] * multipliers[i];
+	        deltaNature += policies[i, 2] * multipliers[i];
+	        deltaWater += policies[i, 3] * multipliers[i];
+	        deltaProduction += policies[i, 4] * multipliers[i];
         }
-        
+
         welfare *= (1 + deltaWelfare);
     	popularity *= (1 + deltaPopularity);
     	nature *= (1 + deltaNature);
     	water *= (1 + deltaWater);
     	production *= (1 + deltaProduction);
-
+        /*
         float populationFactor = (gainCurve.Evaluate((welfare-50)/50) + gainCurve.Evaluate((popularity-50)/50) + gainCurve.Evaluate((nature-50)/50) + gainCurve.Evaluate((water-50)/50) + gainCurve.Evaluate((production-50)/50));
 
-        //this.population +=(int) (this.population * Mathf.Min(populationFactor,0.05f)/4);
-        //populationText.text = this.population+"";
-        
+        this.population +=(int) (this.population * Mathf.Min(populationFactor,0.05f)/4);
+        populationText.text = this.population+"";
+        */
         //print(population);
+
+        // // Apply any existing even
+        for (int i = 0; i < EventsManager._instance.activeEvents.Count; i++) {
+            // Event event = EventsManager._instance.activeEvents[i];
+            // if (event.deltaWelfare > 0.0)    welfare    = welfare    * (1 - deltaWelfare);
+            // if (event.deltaPopularity > 0.0) popularity = popularity * (1 - deltaPopularity);
+            // if (event.deltaNatur > 0.0)      nature     = nature     * (1 - deltaNatur);
+            // if (event.deltaWater > 0.0)      water      = water      * (1 - deltaWater);
+            // if (event.deltaProduction > 0.0) production = production * (1 - deltaProduction);
+        }
 
         // draw graph
         Circle._instance.changeWelfare(welfare);
@@ -81,7 +88,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
     	Circle._instance.changeWater(water);
     	Circle._instance.changeProduction(production);
     }
-    
-    
-    
+
+
+
 }

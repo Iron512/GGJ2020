@@ -5,10 +5,10 @@ using UnityEngine;
 
 public class EventsManager : MonoBehaviour
 {
-    private static EventsManager _instance;
-    public float tick = 1; //time interval in seconds between the update 
+    public static EventsManager _instance;
+    public float tick = 1; //time interval in seconds between the update
     public float secondsToEventStart = 5; // time interval in seconds between each event
-    List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
+    public List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
     public List<Event> availableEvents;
     public List<EventFormManager> eventFormList;
 
@@ -47,6 +47,7 @@ public class EventsManager : MonoBehaviour
     //add a new event to the event that are executing
     public void FireEvent(Event newEvent)
     {
+        print("fireevent");
         foreach(var form in eventFormList)
         {
             if (form.gameObject.activeSelf == false)
@@ -55,6 +56,7 @@ public class EventsManager : MonoBehaviour
                 newEvent.onEventStarts();
                 this.activeEvents.Add(newEvent);
                 // form
+                print("active form");
                 form.gameObject.SetActive(true);
                 form.SetNewEvent(newEvent);
                 break;
@@ -68,8 +70,11 @@ public class EventsManager : MonoBehaviour
         for (int i = activeEvents.Count - 1; i >= 0; i--)
         {
             activeEvents[i].onEventExecute();
-            if (activeEvents[i].timeAtStart + activeEvents[i].duration >= Time.time)
+            if (activeEvents[i].timeAtStart + activeEvents[i].duration < Time.time)
             {
+                Debug.Log(activeEvents[i].timeAtStart);
+                Debug.Log(activeEvents[i].duration);
+                Debug.Log(Time.time);
                 foreach (var form in eventFormList)
                 {
                     if (form.currentEvent == activeEvents[i] && form.gameObject.activeSelf == true)
@@ -78,6 +83,7 @@ public class EventsManager : MonoBehaviour
                         print("remove item");
                         activeEvents.Remove(activeEvents[i]);
                         form.gameObject.SetActive(false);
+                        break;
                     }
                     if (activeEvents.Count == 0)
                     {
