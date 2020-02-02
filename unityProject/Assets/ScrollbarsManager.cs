@@ -21,13 +21,14 @@ public class ScrollbarsManager : MonoBehaviour
 
 		lastModification = Time.time;
 		lastModifiedProgressbar = updatedIndex;
-		float sum = getSum();
-		float lockedSum = this.getSum(skipUnlocked:true);
+		double sum = getSum();
+		double lockedSum = this.getSum(skipUnlocked:true);
 		float lastValueSet = sliders[updatedIndex].value;
 
-		float currentSumValue = this.getSum(skipLoked: true);
+		double currentSumValue = this.getSum(skipLoked: true);
+		//print(currentSumValue);
 		double targetSumValue = 1 - lockedSum;
-		
+
 		for(int i=0;i<5;i++){
 			if (!locks[i].isOn)
 			{
@@ -43,20 +44,22 @@ public class ScrollbarsManager : MonoBehaviour
 			}
 
 			float v;
-			if (currentSumValue != 0)
+			if (currentSumValue  != 0 && currentSumValue != sliders[updatedIndex].value)
 			{
-				 v = (float) (sliders[i].value * ((double) targetSumValue / (double) currentSumValue));
+				 v = (float) (sliders[i].value * (targetSumValue - sliders[updatedIndex].value) / (currentSumValue - sliders[updatedIndex].value));
 			}
 			else
 			{
-				v = 0;
+				v = 0.01f;
 			}
-
-			sliders[i].value = Mathf.Max(0,Mathf.Min(1,v));
+			
+			sliders[i].value = Mathf.Max(0,Mathf.Min(0.96f,v));
 		}
+		
+		
 	}
 
-	public float getSum(bool skipLoked= false,bool skipUnlocked = false)
+	public double getSum(bool skipLoked= false,bool skipUnlocked = false)
 	{
 		float sum = 0;
 		for(int i=0;i<5;i++)
