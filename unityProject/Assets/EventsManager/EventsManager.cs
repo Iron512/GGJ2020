@@ -10,6 +10,7 @@ public class EventsManager : MonoBehaviour
     public float secondsToEventStart = 5; // time interval in seconds between each event
     List<Event> activeEvents = new List<Event>(); //list containing all the events currently in execution
     public List<Event> availableEvents;
+    public List<EventFormManager> eventFormList;
 
     public static EventsManager Instance
     {
@@ -46,8 +47,19 @@ public class EventsManager : MonoBehaviour
     //add a new event to the event that are executing
     public void FireEvent(Event newEvent)
     {
-        newEvent.onEventStarts();
-        this.activeEvents.Add(newEvent);
+        foreach(var form in eventFormList)
+        {
+            if (form.gameObject.activeSelf == false)
+            {
+                // events
+                //newEvent.onEventStarts();
+                this.activeEvents.Add(newEvent);
+                // form
+                form.gameObject.SetActive(true);
+                form.SetNewEvent(newEvent);
+                break;
+            }
+        }
     }
 
     //Execute all the active ecents and deactivate them if they have done their time
@@ -55,11 +67,18 @@ public class EventsManager : MonoBehaviour
     {
         foreach (var ev in activeEvents)
         {
-            ev.onEventExecute();
+            //ev.onEventExecute();
             if (ev.timeAtStart + ev.duration >= Time.time)
             {
-                ev.onEventEnd();
-                activeEvents.Remove(ev);
+                foreach (var form in eventFormList)
+                {
+                    if (form.currentEvent == ev && form.gameObject.activeSelf == true)
+                    {
+                        // ev.onEventEnd();
+                        activeEvents.Remove(ev);
+                        form.gameObject.SetActive(false);
+                    }
+                }
             }
         }
     }
