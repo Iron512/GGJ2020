@@ -16,7 +16,7 @@ MonoBehaviour:
   description: The population believes in a government plot that wants to change
     the climate.
   icon: {fileID: 0}
-  duration: 20
+  duration: 10
   deltaWelfare: 0
   deltaPopularity: 0.2
   deltaNature: 0

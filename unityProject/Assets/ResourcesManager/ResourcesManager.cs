@@ -63,12 +63,12 @@ public class ResourcesManager : Singleton<ResourcesManager>
     	nature *= (1 + deltaNature);
     	water *= (1 + deltaWater);
     	production *= (1 + deltaProduction);
-
+        /*
         float populationFactor = (gainCurve.Evaluate((welfare-50)/50) + gainCurve.Evaluate((popularity-50)/50) + gainCurve.Evaluate((nature-50)/50) + gainCurve.Evaluate((water-50)/50) + gainCurve.Evaluate((production-50)/50));
 
         this.population +=(int) (this.population * Mathf.Min(populationFactor,0.05f)/4);
         populationText.text = this.population+"";
-
+        */
         //print(population);
 
         // // Apply any existing even
