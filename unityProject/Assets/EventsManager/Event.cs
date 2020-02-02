@@ -58,7 +58,12 @@ public class Event : ScriptableObject
 	{
 		//set startTime
 		this.startTime = Time.time;
+
+		// form interactions
+		GameObject form;
+		form = GameObject.Find("EventForm");
 		
+
 		//set all target variations
 		this.targetPopulationVariation = (int)(ResourcesManager._instance.population * (1 - this.deltaPoppulation));
 		this.targetNatureVariation = (int)(ResourcesManager._instance.nature * (1 - this.deltaPoppulation));
