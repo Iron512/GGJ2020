@@ -65,7 +65,7 @@ public class ResourcesManager : Singleton<ResourcesManager>
 
         float populationFactor = (welfare + popularity + nature + water + production - 250)/50;
 
-        this.population =(int) (this.population * populationFactor / 4);        
+        this.population +=(int) (this.population * populationFactor / 4);        
         
         print(population);
 
